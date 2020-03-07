@@ -1,0 +1,65 @@
+
+
+  .sizeResume{
+    min-height:11.69in !important;
+    max-height:11.69in !important;
+    min-width:8.27in !important;
+    max-width:8.27in !important;
+}
+.sizeRightBody{
+    min-height:10.43in !important;
+}
+.firstRowTopMargin{
+    margin-top:1%;
+    margin-bottom: 1%;
+}
+.nameMargin{
+    margin-bottom: 0px;
+    margin-left: 20px;
+}
+.summeryParagraph{
+    text-align: justify;
+    text-justify: inter-word;
+    margin-left: 15px !important;
+    color:#795548;
+}
+.summeryHeading{
+    color:#795548;
+    border-bottom:#795548 solid 1px;
+    padding-bottom: 5px;
+   
+}
+.hrSetting{
+margin-left: 15px;
+color: #795548;
+}
+p{
+    margin: 0% !important;
+    color: #795548;
+}
+.headingEduExp{
+    
+    color: #795548;
+}
+.expParagraph{
+    text-align: justify;
+}
+.yearMargin{
+    padding-top: 12px;
+    padding-left: 20px;
+}
+.subjectpadding{
+    padding-top:15px;
+}
+ul> li> p{
+    font-size: 12pt;
+    color: #795548;
+}
+.contactHeadings{
+    font-size:12pt;
+    font-weight: 400;
+    color: #795548;
+}
+.paraSize {
+font-size: 13pt;
+}

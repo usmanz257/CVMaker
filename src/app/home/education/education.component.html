@@ -1,0 +1,94 @@
+<h4 class="pink-text text-lighten-5 topMargin">Education</h4>
+
+<form action="" class="col s12 white minFormHeight" #educationForm="ngForm" autocomplete="off">
+        <div class="row">
+        <div class="input-field col s12 m6 l6">
+                <i class="material-icons prefix">title</i>
+        <input class="validate" type="text" name="Institute" #Institute="ngModel" [(ngModel)]="institute" required>
+            <label>Institute</label>
+            <span class="helper-text" data-error="Institute Required!" data-success="Done"></span>
+    </div>    
+    <div class="input-field col s12 m6 l6">
+                <i class="material-icons prefix">business</i>
+                <input  class="validate" type="text" name="Location" #Location="ngModel" [(ngModel)]="location" required>
+                <label>Location</label>    
+                <span class="helper-text" data-error="location Required!" data-success="Done"></span>
+        </div>
+    </div>
+    
+    <div class="row">
+        <div class="input-field col s12 m6 l6">
+                <i class="material-icons prefix">school</i>
+        <input class="validate" type="text" name="Degree" #Degree="ngModel" [(ngModel)]="degree"  required>
+            <label>Degree</label>
+            <span class="helper-text" data-error="Degree Required!" data-success="Done"></span>
+    </div>
+        <div class="input-field col s12 m6 l6">
+                <i class="material-icons prefix">import_contacts</i>
+                <input  class="validate" type="text" name="FieldOfStudy" #FieldOfStudy="ngModel" [(ngModel)]="fieldOfStudy"  required>
+                <label>Field of study</label>    
+                <span class="helper-text" data-error="Field of study Required!" data-success="Done"></span>
+        </div>
+    </div>
+    
+    <div class="row" style="margin-bottom:0px;">
+        <div class="input-field col s12 m6 l6">
+                <i class="material-icons prefix">date_range</i>
+        <input class="validate" type="date" name="StartDate" #StartDate="ngModel" [(ngModel)]="startDate" required>
+            <label for="startEDate">Choose Start date</label>
+            <span class="helper-text" data-error="Start date Required!" data-success="Done"></span>
+    </div>
+        <div class="input-field col s12 m6 l6">
+                <i class="material-icons prefix">date_range</i>
+                <input class="validate" type="date" name="EndDate" #EndDate="ngModel" [(ngModel)]='endDate' required>
+                <label for="endEDate">Choose End Date</label>
+                <span class="helper-text" data-error="EndDate Required!" data-success="Done"></span> 
+        </div>
+    </div>
+    <div class="row">
+        <div class="col s12 m2 l2 offset-m10 offset-l10">
+            <button type="reset" [disabled]="educationForm.invalid" (click)="setEducationValues()" class="btn-floating pink lighten-2 pulse bottomMargin" onclick="M.toast({html: 'Education is Added'})"><i class="material-icons">add</i></button>
+        </div>
+</div>
+    <div class="row">
+                <div class="col s6 m2 l2 offset-m1 offset-l1"> 
+                                <button class="btnBackEducation btn waves-effect waves-light z-depth-1" type="button" name="" >Back
+                                   <i class="material-icons left">navigate_before</i>
+                                 </button>
+                            </div>
+    <div class="col s4 m3 l3 offset-s2 offset-m6 offset-l6"> 
+        <button [disabled]="" class="btnNextEducation btn waves-effect waves-light z-depth-1" type="button" name="action"  (click)="saveExperience()">Next
+           <i class="material-icons right">navigate_next</i>
+         </button>
+    </div> 
+    </div>
+   </form>
+   
+   <table class="highlight" [style.display]="_tableToggle">
+        <thead>
+          <tr>
+              <th>Institute</th>
+              <th>Location</th>
+              <th>Degree</th>
+              <th>Field of Study</th>
+              <th>Start Date</th>
+              <th>End Date</th>
+              <th>Action</th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <tr *ngFor="let degree of educationModel; index as i">
+            <td>{{degree.Institute}}</td>
+            <td>{{degree.Location}}</td>
+            <td>{{degree.Degree}}</td>
+            <td>{{degree.FieldOfStudy}}</td>
+            <td>{{degree.StartDate}}</td>
+            <td>{{degree.EndDate}}</td>
+            <td>  <button type="button" class="btn-flat" (click)="editValues(i)"><i class="material-icons blue-text">edit</i></button>
+                <button type="button" class="btn-flat" (click)="deleteEducation(degree.Institute)" onclick="M.toast({html: 'Education is Deleted'})"> <i class="material-icons red-text">delete</i></button>
+            </td>
+          </tr>
+          
+</tbody>
+</table>

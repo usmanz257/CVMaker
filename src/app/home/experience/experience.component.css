@@ -1,0 +1,13 @@
+.minFormHeight {
+    min-height:400px;
+}
+
+.topMargin{
+    margin-top:0px;
+ }
+ .bottomMargin{
+     margin-bottom:10px;
+ }
+ .row{
+    margin: 0px !important;
+ }

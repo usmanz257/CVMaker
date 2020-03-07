@@ -1,0 +1,138 @@
+<h4 class="pink-text text-lighten-5 topMargin">Experience</h4>
+<form action="" class="col s12 white minFormHeight" #experienceForm="ngForm" autocomplete="off" >
+        <div class="row">
+            <div class="input-field col s12 m6 l6">
+                    <i class="material-icons prefix">title</i>
+            <input class="validate" type="text" name="JobTitle" #JobTitle="ngModel" [(ngModel)]="jobTitle" required>
+                <label>Job Title</label>
+                <span class="helper-text" data-error="jobTitle Required!" data-success="Done"></span>
+        </div>
+        
+            <div class="input-field col s12 m6 l6">
+                    <i class="material-icons prefix">business</i>
+                    <input  class="validate" type="text" name="Orgnization" #Orgnization="ngModel" [(ngModel)]="orgnization" required>
+                    <label>Orgnization</label>    
+                    <span class="helper-text" data-error="Orgnization Required!" data-success="Done"></span>
+            </div>
+        </div>
+        <div class="row">
+                <div class="input-field col s12 m6 l6">
+                       <!-- <span> <i class="material-icons prefix">location_on</i></span> -->
+                        <select class="browser-default" name="Country" name="Country" #Country="ngModel" [(ngModel)]="country" (click)="onChange($event.target.value)" required>
+                                <option value="" disabled selected>Choose your option</option>
+                                <option *ngFor="let item of countryNameService.CountryNames" value="{{item.C_id}}" >{{item.CountryName1}}</option>
+                        </select>
+                                              
+            </div>
+                <!-- <div class="input-field col s12 m6 l6">
+                        <i class="material-icons prefix">location_on</i>
+                <input  class="validate" type="text" name="Country" #Country="ngModel" [(ngModel)]="country" required>
+                    <label>Country</label>
+                    <span class="helper-text" data-error="Enter Country" data-success="Done"></span>                           
+            </div> -->
+            <div class="input-field col s12 m6 l6">
+                    <!-- <i class="material-icons prefix">location_city</i> -->
+                        <select class="browser-default" name="City" name="City" #City="ngModel" [(ngModel)]="city" required>
+                                <option value="" disabled selected>Choose your option</option>
+                                <option *ngFor="let i of cityListService.selectedCityList" value="{{i.id}}">{{i.CityName1}}</option>
+                        </select>
+                 <!--<input  class="validate" type="text" name="City" #City="ngModel" [(ngModel)]="city"  required>
+                    <label>City</label>
+                    <span class="helper-text" data-error="Enter city name please" data-success="Done"></span>                            -->
+            </div>
+        </div>
+        <div class="row" style="margin-bottom: 0%;">
+                
+                <div class="input-field col s12 m6 l6">
+                        <i class="material-icons prefix">date_range</i>
+                <input id="startDate" class="" type="date" name="StartEDate" #StartEDate="ngModel" [(ngModel)]="startEDate" required >
+                    <label for="startDate">Start Date</label>
+                    <span class="helper-text" data-error="Start date Required!" data-success="Done"></span>
+                </div>
+                    <div class="input-field col s12 m6 l6">
+                        <i class="material-icons prefix">date_range</i>
+                        <input class="validate" type="date" name="EndEDate" #EndEDate="ngModel" [(ngModel)]="endEDate" required>
+                        <label for="endDate">End Date</label>
+                        <span class="helper-text" data-error="EndDate Required!" data-success="Done"></span> 
+                </div>
+                                             
+        </div>
+        <div class="row">
+                        <div class="col s12 m4 l4 offset-m1 offset-l1">
+                                        <a class="waves-effect waves-light btn modal-trigger" href="#modal1">Enter Experience Detail</a>
+                        </div>
+                <div class="col s12 m2 l2 offset-m3 offset-l3" style="padding-top:10px;">
+                        <p class="grey-text"> Help: Add More+</p>
+                </div>
+                <div class="col s12 m1 l1">
+                    <button type="reset" [disabled]="experienceForm.invalid" (click)="setExperienceValues()" class="btn-floating pink lighten-2 pulse bottomMargin" onclick="M.toast({html: 'Experience is Added'})"><i class="material-icons">add</i></button>
+                </div>
+        </div>
+                <div class="row">
+                                <div class="col s6 m2 l2 offset-m1 offset-l1 "> 
+                                                <button class="btnBackExperience btn waves-effect waves-dark z-depth-1" type="button" name="" >Back
+                                                   <i class="material-icons left">navigate_before</i>
+                                                 </button>
+                                            </div>
+                        <div class="col s4 m3 l3 offset-s2 offset-m6 offset-l6"> 
+                            <button [disabled]="" class="btnNextExperience btn waves-effect waves-light z-depth-1" type="submit" name="action" (click)="saveExperience()">Next
+                               <i class="material-icons right">navigate_next</i>
+                             </button>
+                        </div> 
+            </div> 
+ 
+    </form>
+    <div>
+    <table class="highlight" [style.display]="_tableToggle">
+        <thead>
+          <tr>
+              <th>Job Title</th>
+              <th>Orgnization</th>
+              <th>Country</th>
+              <th>City</th>
+              <th>StartDate</th>
+              <th>End Date</th>
+              <th>Action</th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <tr *ngFor="let expe of experienceModel; index as i">
+            <td>{{expe.JobTitle}}</td>
+            <td>{{expe.Orgnization}}</td>
+            <td>{{expe.Country}}</td>
+            <td>{{expe.City}}</td>
+            <td>{{expe.StartDate}}</td>
+            <td>{{expe.EndDate}}</td>
+            <td>  <button type="button" class="btn-flat" (click)="editValues(i)"  ><i class="material-icons blue-text">edit</i></button>
+                <button type="button" class="btn-flat" (click)="deleteExperience(expe.JobTitle)" onclick="M.toast({html: 'Experience is Deleted'})"><i class="material-icons red-text">delete</i></button>
+            </td>
+          </tr>
+          
+</tbody>
+</table>
+</div>
+             <!-- Modal Structure -->
+             <div id="modal1" class="modal">
+                        <div class="modal-content">
+                          <h4>Enter Experience Details</h4>
+                          <div class="row">
+
+                                      <div class="input-field col s12 m12 l12">
+                                          <i class="material-icons prefix">location_city</i>
+                                      <textarea  class="validate materialize-textarea" type="text" name="expDetails" #expDetails="ngModel" [(ngModel)]="ExpDetails" required></textarea>
+                                          <label>Experience Detail</label>
+                                          <span class="helper-text" data-error="Must Enter Experience Detail" data-success="Done"></span>   
+                                                                 
+                                  </div>
+                                  </div>
+                        </div>
+                        <div class="row">
+                              <div class="col s12 m2 l2 offset-m10 offset-l10">
+                                      <div class="modal-footer">
+                                      <button  type="button" class="modal-close waves-effect waves-green btn" onclick="M.toast({html: 'Experience detail is Added'})">Done</button>
+                                      </div>
+                              </div>
+                       </div>
+              </div>
+    

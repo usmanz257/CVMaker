@@ -1,0 +1,70 @@
+<h4 class="pink-text text-lighten-5 ">Skills</h4>
+
+<form #skillForm="ngForm" class="white minFormHeight">
+<div class="row">
+  <div class=" col s12 m5 l5">
+    <div class="input-field col s12 m12 l12">
+          <input  type="text" class="validate" name="userSkill" #userSkill="ngModel" [(ngModel)]="Userskill" (change)="setButtonValid()" required>
+          <label for="userSkill">skill</label>
+          <span class="helper-text" data-error="skill Required!" data-success="Done"></span> 
+          <button [disabled]="userSkill.invalid" (click)="setSkillValues()" type="reset" class="btn-floating pink lighten-2 pulse right"><i class="material-icons">add</i></button>
+      
+      <div class="input-field col s12 m12 l12" style="padding: 0%;">
+         <!-- <input  type="text" class="validate" nmae="userLanguages" #userLanguages="ngModel" [(ngModel)]="UserLanguage" required>
+         <label for="userLanguages">Languages</label>
+         <span class="helper-text" data-error="Language Required!" data-success="Done"></span>  -->
+         
+         <mat-form-field>
+          <input type="text" class="validate" matInput [matAutocomplete]="auto" [formControl]="UserLanguageControl" required />
+          <mat-autocomplete #auto="matAutocomplete" [displayWith]="displayFn">
+            <mat-option *ngFor="let option of filteredOptions | async" [value]="option">{{option.LanguageName}}</mat-option>
+          </mat-autocomplete>
+        </mat-form-field>
+        
+         <button [disabled]="" (click)="setLanguages()" type="reset" class="btn-floating blue lighten-2 pulse right"><i class="material-icons">add</i></button>  
+    </div>
+  </div>   
+  </div>
+
+<div class="col s12 m6 l6" style="margin-top:10px">
+  <div class="row skillsLanguagesMinHeight">
+    <h5 class="summeryParagraph summeryHeading">Skills</h5>  
+    <div class="scrollbar">
+  <div *ngFor="let skill of Skills; index as i">
+      <div class="col s12 m6 l6">
+          <div class="chip" style="color:#e57373; font-size:13pt ;">
+              {{i+1}}- {{skill.SkillName}}
+              <i class="close material-icons" (click)="deleteSkill(skill.skill)">close</i>
+            </div>
+        </div>
+      </div>
+    </div>
+    </div>
+  <div class="row skillsLanguagesMinHeight" style="margin-top:20px">
+    <h5 class="summeryParagraph summeryHeading">Languages</h5>
+    <div class="scrollbar">
+    <div *ngFor="let lang of Languages; index as i">
+              <div class="col s12 m6 l6">
+                <div class="chip" style="color:#e57373; font-size:13pt ;">
+                 {{i+1}}-{{lang.LanguageName}}
+                 <i class="close material-icons" (click)="deleteLanguage(lang.Language)">close</i>
+                </div>
+                </div>
+   
+              </div></div>
+      </div>
+</div>
+</div>
+<div class="row" style="margin-top:10px"> 
+        <div class="col s6 m2 l2 offset-m1 offset-l1"> 
+                <button class="btnBackSkills btn waves-effect waves-light z-depth-1" type="button" name="action">Back
+                   <i class="material-icons left">navigate_before</i>
+                 </button>
+            </div>
+    <div class="col s4 m3 l3 offset-s2 offset-m6 offset-l6"> 
+        <button [disabled]="" class="btnNextSkills btn waves-effect waves-light z-depth-1" type="button" name="action" (click)="saveSkillsLanguages()">Next
+           <i class="material-icons right">navigate_next</i>
+         </button>
+    </div> </div>
+</form>
+  

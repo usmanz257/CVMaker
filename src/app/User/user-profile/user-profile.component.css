@@ -1,0 +1,59 @@
+.bg-gra-02 {
+    background: -webkit-gradient(linear, left bottom, right top, from(#fc2c77), to(#6c4079));
+    background: -webkit-linear-gradient(bottom left, #fc2c77 0%, #6c4079 100%);
+    background: -moz-linear-gradient(bottom left, #fc2c77 0%, #6c4079 100%);
+    background: -o-linear-gradient(bottom left, #fc2c77 0%, #6c4079 100%);
+    background: linear-gradient(to top right, #fc2c77 0%, #6c4079 100%);
+    
+  }
+  .round-border{
+    border-bottom-left-radius: 10px !important;
+    border-bottom-right-radius:10px !important;
+    padding: 0px !important;
+    padding-bottom: 20px !important;
+    margin-bottom: 0px !important;
+  }
+  .full-round-border{
+      border-radius: 10px !important;
+  }
+  .divSize{
+    border-radius: 20px !important;
+    min-height: 200px;
+    
+  }
+  .imageRound{
+    border-radius: 200px !important;
+
+  }
+  ul>li>div{
+      background-color: transparent !important;
+  }
+  .summeryPadding{
+      padding-top: 10px !important;
+      text-align: justify;
+      border:dotted #7cb342 2px !important;
+      border-radius: 10px;
+      min-height: 150;
+  }
+  .rowmargin{
+    margin: 0px !important;
+ }
+ .divRoundBorder{
+    /* border:dotted white 2px !important; */
+    padding-top: 0px !important;
+    margin-top:0px !important;
+ }
+ .border-bottom-experience{
+    border-bottom: white solid 2px !important;
+ }
+ .fontJobTitle{
+     font-size: 17px;
+ }
+ .grad1{
+ /* background-image: linear-gradient(to top, #896f70, #896f70, #896f70, #896f70, #896f70); */
+ /* background-image: linear-gradient(to top, #896f70, #896f70, #896e6f, #896e6f, #896d6f); */
+ background-image: linear-gradient(to top, #745c5e, #796062, #7e6466, #84696b, #896d6f);
+}
+ .grad{
+ background-image: linear-gradient(to top, #5a3d3d, #664949, #715556, #7d6263, #896f70) !important;
+}

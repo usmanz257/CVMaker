@@ -1,0 +1,95 @@
+
+   <!-- Icons font CSS-->
+   <link href="assets\SignupDesign\vendor\mdi-font\css\material-design-iconic-font.min.css" rel="stylesheet" media="all">
+   <link href="assets\SignupDesign\vendor\font-awesome-4.7\css\font-awesome.min.css" rel="stylesheet" media="all">
+   <!-- Font special for pages-->
+   <link href="https://fonts.googleapis.com/css?family=Poppins:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
+ 
+   <!-- Vendor CSS-->
+ 
+   <!-- Main CSS-->
+   <link href="assets\SignupDesign\css\main.css" rel="stylesheet" media="all">
+  
+    <div class="page-wrapper bg-gra-02 p-t-20 font-poppins">
+        <div class="wrapper wrapper--w680">
+            <div class="card card-4 ">
+                <div class="card-body">
+                    <h2 class="title">Sign Up</h2>
+                    <form class="col s12 white minFormHeight" #signUp="ngForm" autocomplete="off">
+                        <div class="row rowmargin">
+                            <div class="input-field col s12 m6 l6">
+                                    <i class="material-icons prefix">person</i>
+                            <input class="validate" type="text" name="FullName" #FullName="ngModel" [(ngModel)]="Fullname" required>
+                                <label>FullName</label>
+                                <span class="helper-text" data-error="FullName Required!" ></span>
+                        </div>
+                            <div class="input-field col s12 m6 l6">
+                                    <i class="material-icons prefix">phone</i>
+                                    <input  class="validate" type="text" name="phone" #phone="ngModel" [(ngModel)]="PhoneNumber" required minlength="11" maxlength="11" >
+                                    <label>Phone No.</label>    
+                                    <span class="helper-text" [attr.data-error]="phone.errors!=null?(phone.errors.required?'Required Field':'Only Enter 11 digits please'):''" ></span>
+                            </div>
+                        </div>
+                        <div class="row rowmargin">
+                                        <div class="input-field col s12 m6 l6">
+                                                <i class="material-icons prefix">email</i>
+                                                <input  class="validate" type="email" name="userEmail" #userEmail="ngModel" [(ngModel)]="Email" required pattern="^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$">
+                                                <label>Email</label>
+                                                <span class="helper-text" data-error="Enter correct email" ></span>                           
+                                    </div>
+                                    <div class="input-field col s12 m6 l6">
+                                            <i class="material-icons prefix">http</i>
+                                        <input  class="validate" type="text" name="usersite" #usersite="ngModel" [(ngModel)]="websites" required>
+                                            <label>Website</label>
+                                            <span class="helper-text" data-error="Enter Website please" ></span>                           
+                                    </div>
+                        </div>
+                        <div class="row rowmargin">
+                                                <div class="input-field col s12 m6 l6">
+                                                        <i class="material-icons prefix">home</i>
+                                                <input class="validate" type="text" name="userAddress1" #userAddress1="ngModel" [(ngModel)]="address1" required >
+                                                    <label>Address#1</label>
+                                                    <span class="helper-text" data-error="Address Required!" ></span>
+                                            </div>
+                                                <div class="input-field col s12 m6 l6">
+                                                        <i class="material-icons prefix">home</i>
+                                                        <input class="validate" type="text" name="userAddress2" #userAddress2="ngModel" [(ngModel)]="address2" required>
+                                                        <label>Address#2</label>
+                                                        <span class="helper-text" data-error="Address Required!" ></span> 
+                                                </div>
+                        </div>
+                        <div class="row rowmargin">
+                                                <div class="input-field col s12 m6 l6">
+                                                        <i class="material-icons prefix">vpn_key</i>
+                                                <input class="validate" type="password" name="userpassword" #userpassword="ngModel" [(ngModel)]="password" required pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" />
+                                                    <label>Password</label>
+                                                    <span class="helper-text" data-error="password Required!" data-success="Done"></span>
+                                                    <div *ngIf="userpassword.invalid && (signUp.submitted || userpassword.touched)" class="alert alert-danger">
+                                                        <div *ngIf="userpassword.errors.required"> Password is required. </div>
+                                                        <div *ngIf="userpassword.errors.pattern"> Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters.</div>
+                                                     </div>
+                                                </div>
+                                            <div class="input-field col s12 m6 l6">
+                                                <i class="material-icons prefix">vpn_key</i>
+                                                <input class="validate" type="password" name="userconfirmpassword" #userconfirmpassword="ngModel" [(ngModel)]="confirmpassword" required pattern="{{ userpassword.value }}"/>
+                                                <label>Connfirm Password</label>
+                                                <span class="helper-text" data-error="password Required!" data-success="Done"></span>
+                                                <div *ngIf=" userconfirmpassword.invalid && (signUp.submitted || userconfirmpassword.touched)" class="alert alert-danger">
+                                                <div *ngIf="userconfirmpassword.errors.required"> Confirm password is required. </div>
+                                                <div *ngIf="userconfirmpassword.errors.pattern"> Password & Confirm Password does not match.</div></div>
+                                            </div>
+                        </div>
+                        <div class="p-t-15">
+                            <button class="btn1 btn1--radius-2 btn1--blue" type="submit" (click)="setInfoValues()">Submit</button>
+                        </div>
+                    </form>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+       <!-- Jquery JS-->
+  
+   <!-- Vendor JS-->
+
+   <!-- Main JS-->

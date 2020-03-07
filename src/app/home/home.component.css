@@ -1,0 +1,8 @@
+.imageInputMargin{
+    margin-top:15px; 
+    margin-left:10px; 
+    margin-right:10px;
+}
+.cardBackgroundColors{
+    background-image: linear-gradient(to left top, #bcbcbc, #c1c2c5, #c3c9ce, #c3d0d4, #c5d8d8);
+}

@@ -1,0 +1,116 @@
+
+<div class="container" id="printJS-form">
+<div class="card z-depth-2 sizeResume">
+    <div class="row brown lighten-2" style="margin: 0%;">
+                <div class="col  m2 l2 offset-m1 offset-l1 firstRowTopMargin" style="border-right:1px solid whitesmoke;">             
+                    <div class="card-image">
+                        <img [src]="imageURL" class="Image_size" >
+                    </div>
+                </div>
+                <div class="col  m9 l9 firstRowTopMargin">
+                <div class="row nameMargin white-text">
+                <h5 style="margin:0%; margin-top:10px">{{_basicInformation.FullName}}</h5>
+                </div>
+                <div class="row nameMargin white-text" style="margin-top: 0%;">
+                    <H6>Developer</H6>
+                    </div>
+                </div>
+    </div>
+
+    <div class="row">
+        <div class="col m8 l8">
+            <h5 class="summeryParagraph summeryHeading">Summery</h5>
+            <p class="summeryParagraph">{{_summery.userResumeSummery}}</p>
+                <h5 class="summeryParagraph summeryHeading">Work History</h5>
+                <div *ngFor="let exp of _userExperience; index as i">
+                <div class="col  m3 l3 yearMargin">
+                    <p>{{exp.StartDate}}-{{exp.EndDate}}</p>
+                </div>
+                <div class="col m9 l9">
+                    <div class="row" style="margin:0px;">
+                    <div class="col m5 l5"  style="margin:0px; padding: 0%;">
+                            <h6 class="flow-text headingEduExp">{{exp.JobTitle}}</h6>
+                    </div>
+                    <div class="col m7 l7" style="padding-top:15px;">
+                        <p>{{exp.Orgnization}}</p>
+                    </div>
+                </div>
+                    <p>{{exp.Country}}-{{exp.City}}</p>
+                  <p class="expParagraph">
+                    {{exp.ExpDetails}}
+                </p>
+                </div>
+            </div>
+            <h5 class="summeryParagraph summeryHeading">Education</h5>
+            <div *ngFor="let edu of _userEducation; index as i">
+                <div class="col m3 l3 yearMargin">
+                      <p>{{edu.StartDate}}-{{edu.EndDate}}</p>
+                 </div>
+                     <div class="col m9 l9">
+                                    <div class="row" style="margin-bottom:0%;">
+                                    <div class="col s6 m12 l12">
+                                        <p class="flow-text headingEduExp">{{edu.Degree}}</p>--<p>{{edu.FieldOfStudy}}</p>
+                                    </div>
+                               
+                                       </div>
+                                       <div class="row" style="margin-top: 0%;">
+                                            <div class="col m12 l12">
+                                                <p>{{edu.Institute}}--{{edu.Location}}</p>
+                                            </div>
+                                               </div>
+                                 </div>                   
+                </div></div>
+        <div class="col m4 l4 sizeRightBody brown lighten-5">
+                <div class="row" style="margin-right:5px;">
+                        <h5 class="summeryParagraph summeryHeading">Contact</h5>
+                        <div class="col m12 l12" style="margin-left: 5px;">
+                                <p class="contactHeadings"><b>Address1</b></p>
+                                <div class="col m12 l12">
+                                <p class="paraSize">{{_basicInformation.address1}}</p>
+                              </div>
+                            </div>
+                            <div class="col m12 l12" style="margin-left: 5px;">
+                                    <p class="contactHeadings"><b>Address2</b></p>
+                                    <div class="col m12 l12">
+                                    <p class="paraSize">{{_basicInformation.address2}}</p>
+                                  </div></div>
+
+                        <div class="col m12 l12" style="margin-left: 5px;">
+                          <p class="contactHeadings"><b>Phone</b></p>
+                          <div class="col m10 l10">
+                                <p class="paraSize">{{_basicInformation.PhoneNumber}}</p>
+                              </div>
+                        </div>
+                        <div class="col m12 l12" style="margin-left: 5px;">
+                                <p class="contactHeadings"><b>Email</b></p>
+                                <div class="col m10 l10">
+                                        <p class="paraSize">{{_basicInformation.Email}}</p>
+                                      </div> 
+                            </div>
+                            <div class="col m12 l12" style="margin-left: 5px;">
+                                <p class="contactHeadings"><b>Websites</b></p>
+                                <div class="col m10 l10">
+                                        <p class="paraSize">{{_basicInformation.Websites}}</p>
+                                      </div> 
+                            </div>
+                        </div>
+                <div class="row" style="margin-right:5px;">
+                    <h5 class="summeryParagraph summeryHeading">Skills</h5>
+                    <div class="col m11 l11 offset-m1 offset-l1" *ngFor="let skills of _userSkills; index as i">
+                            <p>{{skills.SkillName}}</p>
+                    </div>
+                </div>
+                <div class="row" style="margin-right:5px;">
+                        <h5 class="summeryParagraph summeryHeading">Languages</h5>
+                        <div class="col m11 l11 offset-m1 offset-l1" *ngFor="let lang of _userLanguage; index as i">
+                                        <p>{{lang.Language1}}</p>
+                        </div>
+                        </div>
+            </div>
+    </div>
+</div>
+</div>
+
+<button type="button" onclick="printJS('printJS-form', 'html')">
+    Print Form
+ </button>
